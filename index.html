@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="jquery.animateDialog.css" />
+<link rel="stylesheet" href="jquery.animateDialog.junk.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="jquery.animateDialog.js"></script>
+</head>
+<body>
+<a href="https://github.com/shunjikonishi/jquery-animateDialog"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+<div class="container">
+	<h1 class="page-header">jQuery.animateDialog</h1>
+	<div>
+		<h2>Overview</h2>
+		<p>This is a jQuery plugin for css3 animation.</p>
+		<p>This plugin allows you to show any element with css3 animation effect.</p>
+	</div>
+	<div>
+		<h2>Setup</h2>
+		<p>Link to this plugin's script and css</p>
+		<p>If you defined your original animation, it should be linked.</p>
+		<pre>
+&lt;link rel="stylesheet" href="jquery.animateDialog.css" />
+&lt;-- You can link to your original animation css.
+&lt;link rel="stylesheet" href="jquery.animateDialog.junk.css" />
+-->
+&lt;script src="jquery.animateDialog.js"></script></pre>
+		<h2>Usage</h2>
+		<pre>
+$("&lt;selector>").animateDialog([message], [options]);</pre>
+		<p>This plugin takes two parameters. All parameters are omitable.</p>
+		<dl>
+			<dt>message</dt>
+			<dd>If the target element contains the element which has 'message' class, you can replace its text with this parameter.</dd>
+			<dt>options</dt>
+			<dd>
+				<p>Override animation related css. Allowed keys are follows.</p>
+				<ul>
+					<li>name</li>
+					<li>iteration-count</li>
+					<li>duration</li>
+					<li>timing-function</li>
+					<li>delay</li>
+					<li>direction</li>
+				</ul>
+				<p>All keys are corresponding to animation-xxxx in css3.</p>
+			</dd>
+		</dl>
+		<h3>Predefined animation</h3>
+		<p>In jquery.animateDialog.css, 3 animations are defined.</p>
+		<ul>
+			<li>fade - Fade in, then fade out.</li>
+			<li>inout - Zoom in, then zoom out.</li>
+			<li>rotateZoom - Rotate and zoom.</li>
+		</ul>
+		<p>If options parameter is omitted, fade animation is applied.</p>
+		<div>
+			<button class="btn" id="test1">fade</button>
+			<button class="btn" id="test2">inout</button>
+			<button class="btn" id="test3">rotateZoom</button>
+		</div>
+		<h2>Sample</h2>
+		<pre>
+[HTML]
+&lt;div id="dialog" class="animateDialog-default" style="display:none;">&lt;span class="message">Hello world!&lt;/span>&lt;/div>
+
+[SCRIPT]
+//Default fade animation.(3 seconds.)
+$("#dialog").animateDialg();
+
+//Replace message
+$("#dialog").animateDialg("Fade in!");
+
+//Fade with 5 seconds.
+$("#dialog").animateDialg({
+    "duration" : "5s"
+});
+
+//Change animation to inout
+$("#dialog").animateDialg("Zoom in!", {
+    "name" : "inout"
+});
+
+//Junk samples.(Defined in jquery.animateDialog.junk.css)
+$("#dialog").animateDialg({
+    "name" : "translate"
+});
+$("#dialog").animateDialg({
+    "name" : "rotate"
+});
+$("#dialog").animateDialg({
+    "name" : "skew"
+});
+$("#dialog").animateDialg({
+    "name" : "fullfull"
+});</pre>
+		<p>'animateDialog-default' is simple fixed dialog definition.</p>
+		<p>Of course you can use more complex element.</p>
+		<h3>Default</h3>
+		<div>
+			<button class="btn" id="test11">Default</button>
+			<button class="btn" id="test12">Replace text</button>
+			<button class="btn" id="test13">5 seconds</button>
+			<button class="btn" id="test14">Change animation</button>
+		</div>
+		<h3>Junk</h3>
+		<div>
+			<button class="btn" id="test21">Translate</button>
+			<button class="btn" id="test22">Rotate</button>
+			<button class="btn" id="test23">Skew</button>
+			<button class="btn" id="test24">Fullfull</button>
+		</div>
+	</div>
+</div>
+<div id="dialog" class="animateDialog-default" style="display:none;"><span class="message">Hello world!</span></div>
+<script>
+$(function() {
+	$("#test1").click(function() {
+		$("#dialog").animateDialog();
+	})
+	$("#test2").click(function() {
+		$("#dialog").animateDialog({
+			"name" : "inout"
+		});
+	})
+	$("#test3").click(function() {
+		$("#dialog").animateDialog({
+			"name" : "rotateZoom"
+		});
+	})
+	$("#test11").click(function() {
+		$("#dialog").animateDialog();
+	})
+	$("#test12").click(function() {
+		$("#dialog").animateDialog("Fade in!");
+	})
+	$("#test13").click(function() {
+		$("#dialog").animateDialog({
+			"duration" : "5s"
+		});
+	})
+	$("#test14").click(function() {
+		$("#dialog").animateDialog("Zoom in!", {
+			"name" : "inout"
+		});
+	})
+	$("#test21").click(function() {
+		$("#dialog").animateDialog({
+			"name" : "translate"
+		});
+	})
+	$("#test22").click(function() {
+		$("#dialog").animateDialog({
+			"name" : "rotate"
+		});
+	})
+	$("#test23").click(function() {
+		$("#dialog").animateDialog({
+			"name" : "skew"
+		});
+	})
+	$("#test24").click(function() {
+		$("#dialog").animateDialog({
+			"name" : "fullfull"
+		});
+	})
+})
+</script>
+</body>
+</html>
