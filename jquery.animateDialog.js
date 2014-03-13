@@ -56,6 +56,8 @@
 			$el.show();
 			setTimeout(function() {
 				$el.hide();
+				$el.css("animation-name", "");
+				$el.css("-webkit-animation-name", "");
 				if (initialText) {
 					$el.find(".message").text(initialText);
 				}
