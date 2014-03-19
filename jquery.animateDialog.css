@@ -30,13 +30,13 @@
 
 @keyframes inout {
   0%    { transform: scale(0, 0); }
-  40%   { transform: scale(2, 2); }
+  40%   { transform: scale(4, 4); }
   80%   { transform: scale(1, 1); }
   100%  { transform: scale(1, 1); }
 }
 @-webkit-keyframes inout { /* Safari & Chrome */
   0%   { -webkit-transform: scale(0, 0); }
-  40%  { -webkit-transform: scale(2, 2); }
+  40%  { -webkit-transform: scale(4, 4); }
   80%  { -webkit-transform: scale(1, 1); }
   100% { -webkit-transform: scale(1, 1); }
 }
